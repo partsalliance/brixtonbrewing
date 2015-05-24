@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Flask-SocketIO Test</title>
+    <title>Paddy Beer!</title>
     <script type="text/javascript" src="https://github.com/joewalnes/smoothie/raw/master/smoothie.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
@@ -13,6 +13,14 @@
  smoothie.streamTo(document.getElementById("mycanvas"),1000);
  
  var line1 = new TimeSeries();
+             var line2 = new TimeSeries();
+             var line3 = new TimeSeries();
+
+            smoothie.addTimeSeries(line1, { strokeStyle:'rgb(0, 255, 0)', fillStyle:'rgba(0, 255, 0, 0.4)', lineWidth:3 });
+            smoothie.addTimeSeries(line2, { strokeStyle:'rgb(0, 0, 255)', fillStyle:'rgba(0, 255, 0, 0.4)', lineWidth:3 });
+             smoothie.addTimeSeries(line3, { strokeStyle:'rgb(255, 0, 0)', fillStyle:'rgba(0, 255, 0, 0.4)', lineWidth:3 });
+             line2.append(new Date().getTime(),parseFloat( 14));
+            line3.append(new Date().getTime(),parseFloat( 25));
 
 // Add to SmoothieChart
 smoothie.addTimeSeries(line1, { strokeStyle:'rgb(0, 255, 0)', fillStyle:'rgba(0, 255, 0, 0.4)', lineWidth:3 });
@@ -70,7 +78,7 @@ smoothie.addTimeSeries(line1, { strokeStyle:'rgb(0, 255, 0)', fillStyle:'rgba(0,
 
 </head>
 <body>
-    <h1>Flask-SocketIO Test</h1>
+    <h1>Beer Temp</h1>
   <canvas id="mycanvas" width="800" height="300">
 
 	</canvas>  <canvas id="chart" width="400" height="400"></canvas>

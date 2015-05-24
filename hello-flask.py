@@ -3,6 +3,7 @@ from flask.ext.socketio import SocketIO, emit
 from threading import Thread
 import time
 from random import randint
+from TemperatureProbe import TemperatureProbe
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -14,11 +15,12 @@ thread = None
 def background_thread():
     """Example of how to send server generated events to clients."""
     count = 0
+    t = TemperatureProbe()
     while True:
-        time.sleep(3)
-        count += 1
+        time.sleep(1.5)
+        t = TemperatureProbe()
         socketio.emit('my response',
-                      {'data': + randint(2,9), 'count': count},
+                      {'data': + float(t.read_temp())},
                       namespace='/test')
 
 
