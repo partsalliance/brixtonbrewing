@@ -1,16 +1,15 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BOARD)
 
-
-GPIO.setup(16,GPIO.OUT)
-GPIO.output(16,1)
-#state  = GPIO.input(16)
-#print state
-
-t = GPIO.output(16,GPIO.input(16))
-print t
-
-GPIO.cleanup(16)
-
+def triggerPin(pin):
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(pin,GPIO.OUT)
+    #GPIO.cleanup(pin)
+    GPIO.output(pin,True)
+    "Pin has been triggered"
+    time.sleep(2)
+    #GPIO.cleanup(pin)
+    GPIO.output(pin,False)
+    time.sleep(1.5)

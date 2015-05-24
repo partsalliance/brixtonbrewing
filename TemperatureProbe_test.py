@@ -17,10 +17,10 @@ class TemperatureProbe_tests(unittest.TestCase):
             print(t.read_temp())
             t.activateLogging()
             self.assertTrue(t.activeLogging)
-            time.sleep(3)
-            t.activeLogging=False
+            time.sleep(15)
             print ("other loop")
             time.sleep(3)
             t.deactivateLogging()
+            self.assertFalse(t.activeLogging)
 if __name__ == '__main__':
     unittest.main()

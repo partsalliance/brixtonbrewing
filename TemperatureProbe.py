@@ -39,15 +39,16 @@ class TemperatureProbe:
             return temp
     'start a new method to start logging the temperature to a csv file'
     def writeToCSV(self):
+        print " Logging"
         with open('test.csv','wb') as fp:
             while (self.activeLogging==True):
                 
                 a = csv.writer(fp)
                 data = [time.strftime("%d/%m/%Y"),time.strftime("%H:%M:%S"),self.read_temp()]
-                print (time.strftime("%d/%m/%Y")+ time.strftime("%H:%M:%S") + self.read_temp())
+                #print (time.strftime("%d/%m/%Y")+ time.strftime("%H:%M:%S") + " " + self.read_temp())
                 a.writerows(data)
-            a.close()
-            print("Thread is dead")
+            
+            print("Thread is dead. Logging stopped")
 
     def activateLogging(self):
         if(self.activeLogging==False):

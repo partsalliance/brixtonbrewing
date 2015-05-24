@@ -1,38 +1,58 @@
 from HeatElement import HeatElement
 import unittest
+import time
 
 class HeatElement_tests(unittest.TestCase):
-    
-    def setUp(self):
-        h = HeatElement(12,14)
-        print " setup"
-    def test_notRunning(self):
-        h = HeatElement(12,14)
-        self.assertFalse(h.running)
+##    
+##    def setUp(self):
+##        h = HeatElement(16,18)
+##        print " setup"
+##    def test_notRunning(self):
+##        h = HeatElement(16,18)
+##        self.assertFalse(h.running)
 
-    def test_switchElementOn(self):
-        h = HeatElement(12,14)
-        self.assertFalse(h.running)
-        h.turnElementOn()
-        self.assertTrue(h.running)
 
-    def test_elementIsAlreadyOn(self):
-        h = HeatElement(12,14)
+
+    def test_el(                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          self):
+        h = HeatElement(16,18)
         self.assertFalse(h.running)
         h.running = True
         self.assertTrue(h.running)
         self.assertEqual(h.turnElementOn(),"element already on")
 
     def test_switchElementOff(self):
-        h = HeatElement(12,14)
+       # time.sleep(3)
+        h = HeatElement(11,13)
         h.running = True
         self.assertTrue(h.running)
         h.turnElementOff()
         self.assertFalse(h.running)
 
-    def test_elementIsAlreadyOff(self):
-        h = HeatElement(12,14)
-        self.assertEqual(h.turnElementOff(),"element already off")
+    def test_switchElementOn(self):
+        time.sleep(3)
+        h = HeatElement(11,13)
+       # self.assertFalse(h.running)
+        h.turnElementOn()
+        self.assertTrue(h.running)
+
+    def test_switchElementOff1(self):
+       # time.sleep(3)
+        h = HeatElement(16,18)
+        h.running = True
+        self.assertTrue(h.running)
+        h.turnElementOff()
+        self.assertFalse(h.running)
+
+    def test_switchElementOn1(self):
+        time.sleep(3)
+        h = HeatElement(16,18)
+        # self.assertFalse(h.running)
+        h.turnElementOn()
+        self.assertTrue(h.running)        
+##
+##    def test_elementIsAlreadyOff(self):
+##        h = HeatElement(16,18)
+##        self.assertEqual(h.turnElementOff(),"element already off")
         
 if __name__ == '__main__':
     unittest.main()
